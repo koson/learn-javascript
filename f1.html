@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script language="javascript">
+            function WriteToFile()
+            { 
+					var fso = new ActiveXObject("Scripting.FileSystemObject");
+					var fh = fso.OpenTextFile("part1.html", 1, false, 0);
+					var lines = "";
+					while (!fh.AtEndOfStream) {
+					lines += fh.ReadLine() + "\r";
+					}
+				fh.Close();
+			
+                var txt = new ActiveXObject("Scripting.FileSystemObject");
+                var s = txt.CreateTextFile("11.html", true);
+                s.WriteLine(lines);
+				s.WriteLine("<table >  <tr>  <td class='e'  >IE247</td>  </tr> </table>");
+                s.Close();
+				
+             }
+         </script>
+    </head>
+   <body onLoad="WriteToFile()">
+   </body>
+</html>
